@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="./https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="./https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="./https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="./https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./dashboard/dashboard.css">
+    <script src="./dashboard/dashboard.js"></script>
+
+    <link rel="stylesheet" href="./navbar/navbar.css">
+    <script src="./navbar/navbar.js"></script>
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!---Whole page --->
+      <div class="mainContainer">
+        <!---Load in Navbar into the div -->
+        <div id="navbar"></div>
+        <!-- Contetnt Section inside maincontainer under navbar -->
+        <div class="contentContainer">
+
+          <!-- This is the grid area container -->
+          <div id="content">
+            <!--Each Div is a grid box -->
+            <div class="weatherGrid"></div>
+            <div class="tempHumdGrid"></div>
+            <div class="environmentMonGrid"></div>
+            <div class="batteryGrid"></div>
+            <div class="lightingCtrlGrid"></div>
+            <div class="hvacCtrlGrid"></div>
+            <div class="smartMeterGrid"></div>
+            <div class="tempHumdChartGrid"></div>
+            <div class="energyUsageChartGrid"></div>
+        </div>
+        </div>
+      </div>  
+  </body>
+</html>
+
+<script>
+  $(document).ready(function()
+  {
+    $("#navbar").load("navbar/navbar.html");
+  });
+</script>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridArea</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+    #draggable { width: 150px; height: 150px; padding: 0.5em; }
+    #snaptarget {height: 140px}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#draggable" ).draggable({grid:[10,10]});
+      $( "#draggable2" ).draggable({grid:[10,10]});
+      $( "#draggable3" ).draggable({grid:[10,10]});
+      $( "#draggable4" ).draggable({grid:[10,10]});
+      $( "#draggable5" ).draggable({grid:[10,10]});
+      $( "#draggable6" ).draggable({grid:[10,10]});
+    } );
+    </script>
+    <style>
+        body {
+            color: #fff;
+            font-family: Arial;
+            text-align: center;
+        }
+        #content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            max-width: 100%;
+            margin: 0 auto;
+            grid-gap: 10px;
+            grid-template-areas:
+                "header header header header"
+                "footer footer footer footer"
+                "main main main main"
+                "aside aside . ."
+                "nav nav nav ."
+                "section section section section";
+        }
+        /* @media screen and (min-width:760px) {
+            #content {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-auto-rows: minmax(100px, auto);
+                max-width: 100%;
+                margin: 0 auto;
+                grid-gap: 10px;
+                grid-template-areas:
+                     "header header header header"
+                    "aside main main main"
+                    "nav main main main"
+                    "section section section section"
+                    "section section section section"
+                    "footer footer footer footer" 
+                    "aside header header main main"
+                    "aside section section nav nav"
+                    "footer footer footer footer footer"
+            }
+        } */
+        @media only screen and (max-width: 925px){
+            #content
+            {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-auto-rows: minmax(100px, auto);
+                max-width: 100%;
+                margin: 0 auto;
+                grid-gap: 10px;
+                grid-template-areas:
+                     "header"
+                     "nav"
+                     "main"
+                     "section"
+                     "aside"
+                     "footer"
+            }
+        }
+
+        #content>* {
+            background-color: #3bbced;
+            padding: 30px;
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        main {
+            grid-area: main;
+        }
+
+        section {
+            grid-area: section;
+        }
+
+        aside {
+            grid-area: aside;
+        }
+
+        nav {
+            grid-area: nav;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <header id="draggable">Header</header>
+        <main id="draggable2">Main</main>
+        <section id="draggable3">Section</section>
+        <aside id="draggable4">Aside Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium dolorem voluptas in natus quam facere vero voluptates voluptatum quibusdam? Eum atque sint exercitationem, qui facilis deserunt labore in perspiciatis ea.</aside>
+        <nav id="draggable5">Nav</Nav>
+        <footer id="draggable6">Footer</footer>
+    </div>
+</body>
+
+</html>

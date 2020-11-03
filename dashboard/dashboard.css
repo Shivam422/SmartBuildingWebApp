@@ -1,81 +1,59 @@
-.backgroundimg
-{
-    width: 100%;
-    opacity: 0.6;
-    position: absolute;
-    left: 0;
+.mainContainer {
+  position: relative;
 }
-body {
-    color: #fff;
-    font-family: Arial;
-    text-align: center;
+.backgroundimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 33%;
+}
+/*grid areas */
+.weatherGrid {
+  grid-area: weatherGrid;
+}
+.tempHumdGrid {
+  grid-area: tempHumdGrid;
+}
+.environmentMonGrid {
+  grid-area: environmentMonGrid;
+}
+.batteryGrid {
+  grid-area: batteryGrid;
+}
+.lightingCtrlGrid {
+  grid-area: lightingCtrlGrid;
+}
+.hvacCtrlGrid {
+  grid-area: hvacCtrlGrid;
+}
+.smartMeterGrid {
+  grid-area: smartMeterGrid;
+}
+.tempHumdChartGrid {
+  grid-area: tempHumdChartGrid;
+}
+.energyUsageChartGrid {
+  grid-area: energyUsageChartGrid;
 }
 #content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    max-width: 100%;
-    margin: 0 auto;
-    grid-gap: 10px;
-    margin: 20px;
-    grid-template-areas:
-        "header main footer nav"
-        "header main footer nav"
-        "header main footer nav"
-        "aside aside section section"
-        "aside aside section section"
-        "aside aside section section"
-        "aside aside section section"
-        "bottom bottom bottom bottom"
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  max-width: 100%;
+  margin: 0 auto;
+  grid-gap: 10px;
+  margin: 20px;
+  grid-template-areas:
+    "weatherGrid weatherGrid  tempHumdGrid tempHumdGrid environmentMonGrid environmentMonGrid batteryGrid batteryGrid"
+    "lightingCtrlGrid lightingCtrlGrid hvacCtrlGrid hvacCtrlGrid smartMeterGrid smartMeterGrid smartMeterGrid smartMeterGrid"
+    "tempHumdChartGrid tempHumdChartGrid tempHumdChartGrid tempHumdChartGrid energyUsageChartGrid energyUsageChartGrid energyUsageChartGrid energyUsageChartGrid";
 }
-@media only screen and (max-width: 925px){
-    #content
-    {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-auto-rows: minmax(100px, auto);
-        max-width: 100%;
-        margin: 0 auto;
-        grid-gap: 10px;
-        grid-template-areas:
-             "header"
-             "nav"
-             "main"
-             "section"
-             "aside"
-             "footer"
-    }
-}
-
-#content>* {
-    background-color: #3bbced;
-    padding: 30px;
-}
-
-header {
-    grid-area: header;
-}
-
-main {
-    grid-area: main;
-}
-
-section {
-    grid-area: section;
-}
-
-aside {
-    grid-area: aside;
-}
-
-nav {
-    grid-area: nav;
-}
-
-footer {
-    grid-area: footer;
-}
-.bottom
-{
-    grid-area: bottom;
+#content > div {
+  background-color: white;
+  color: #727272;
+  border: 1px solid #d7d7d7;
+  border-radius: 10px;
 }

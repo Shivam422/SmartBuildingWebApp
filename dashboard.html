@@ -17,6 +17,9 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!--- Apex Chart Library --->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     <link rel="stylesheet" href="./dashboard/dashboard.css">
     <script src="./dashboard/dashboard.js"></script>
 
@@ -31,13 +34,84 @@
         <!---Load in Navbar into the div -->
         <div id="navbar"></div>
         <!-- Contetnt Section inside maincontainer under navbar -->
-        <div class="contentContainer">
-          <img src="/images/backgroundIMG.png" class="backgroundimg">
+        <img src="/SmartBuildingWebApp/images/backgroundIMG.png" class="backgroundimg">
+        <div class="contentContainer"> 
           <!-- This is the grid area container -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Please Enter your Location</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Location:</label>
+                      <input type="text" class="form-control" id="userLocation">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="openWeatherAPISettings(), weatherAPI()">Submit</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div id="content">
             <!--Each Div is a grid box -->
-            <div class="weatherGrid"></div>
-            <div class="tempHumdGrid"></div>
+            <div class="weatherGrid">
+              <div class="weatherTitle">
+                <span style="float: left;" id="currentDate">10/28</span>
+                <span style="font-size: 24px;" id="weatherAPILocation">Houston</span>
+                <button type="button" data-toggle="modal" data-target="#exampleModal" class="editButton"><img src="/SmartBuildingWebApp/images/edit.svg" class="editLocation"></button>
+                <span style="float: right;" id="currentTime">10:30 AM</span>
+              </div>
+              <div class="currentWeather">
+                  <img src="/SmartBuildingWebApp/images/011-cloudy.svg" class="currentWeatherPng">
+                  <div id="currentWeatherText">Cloudy</div>
+                  <div id="currentWeatherTemp">22&degC</div>
+              </div>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div id="today">Today</div>
+                      <div id="forecast_today"><img src="/SmartBuildingWebApp/images/001-cloud.svg" class="forecastPng"></div>
+                      <div id="highLow_today">22/17</div>
+                    </td>
+                    <td>
+                      <div id="day_1">Mon</div>
+                      <div id="forecast_1"><img src="/SmartBuildingWebApp/images/001-cloud.svg" class="forecastPng"></div>
+                      <div id="highLow_1">22/17</div>
+                    </td>
+                    <td>
+                      <div id="day_2">Mon</div>
+                      <div id="forecast_2"><img src="/SmartBuildingWebApp/images/001-cloud.svg" class="forecastPng"></div>
+                      <div id="highLow_2">22/17</div>
+                    </td>
+                    <td>
+                      <div id="day_3">Mon</div>
+                      <div id="forecast_3"><img src="/SmartBuildingWebApp/images/001-cloud.svg" class="forecastPng"></div>
+                      <div id="highLow_3">22/17</div>
+                    </td>
+                    <td>
+                      <div id="day_4">Mon</div>
+                      <div id="forecast_4"><img src="/SmartBuildingWebApp/images/001-cloud.svg" class="forecastPng"></div>
+                      <div id="highLow_4">22/17</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tempHumdGrid">
+              <div class="tempHumdTitle">
+              
+              </div>
+            </div>
             <div class="environmentMonGrid"></div>
             <div class="batteryGrid"></div>
             <div class="lightingCtrlGrid"></div>
@@ -52,8 +126,9 @@
 </html>
 
 <script>
-  $(document).ready(function()
+  $(document).ready(async function()
   {
     $("#navbar").load("./navbar/navbar.html");
+    await refreshDom();
   });
 </script>

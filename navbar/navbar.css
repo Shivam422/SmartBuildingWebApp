@@ -1,0 +1,21 @@
+.navbar {
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03),
+    0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03),
+    0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05),
+    0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #727272;
+}
+.navbar-dark:hover .navbar-nav:hover .nav-link:hover {
+  color: #27a4ff;
+}
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link {
+  color: #27a4ff;
+}
+.navbar-dark .navbar-brand {
+  color: #27a4ff;
+}
